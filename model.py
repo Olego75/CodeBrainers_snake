@@ -19,29 +19,29 @@ def initialize_snake(_board):
 def set_new_position(direction, snake, board):
     if direction == 0:
         head_x, head_y = snake[0]
-
-        head_y = head_y - 1
         board[(head_x, head_y)] = None
+        head_y = head_y - 1
+        board[(head_x, head_y)] = "SnakeHead"
         snake[0] = (head_x, head_y)
 
     if direction == 1:
         head_x, head_y = snake[0]
-
-        head_x = head_x + 1
         board[(head_x, head_y)] = None
+        head_x = head_x + 1
+        board[(head_x, head_y)] = "SnakeHead"
         snake[0] = (head_x, head_y)
 
     if direction == 2:
         head_x, head_y = snake[0]
-
-        head_y = head_y + 1
         board[(head_x, head_y)] = None
+        head_y = head_y + 1
+        board[(head_x, head_y)] = "SnakeHead"
         snake[0] = (head_x, head_y)
 
 
     if direction == 3:
         head_x, head_y = snake[0]
-
-        head_x = head_y - 1
         board[(head_x, head_y)] = None
+        head_x = head_x - 1
+        board[(head_x, head_y)] = "SnakeHead"
         snake[0] = (head_x, head_y)
