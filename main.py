@@ -1,6 +1,6 @@
 import pygame
 
-from model import initialize_board, initialize_snake, set_new_position, initialize_apple, eat_apple
+from model import initialize_board, initialize_snake, set_new_position, initialize_apple, eat_apple, get_score
 from view import draw
 
 step = 20
@@ -14,13 +14,13 @@ clock = pygame.time.Clock()
 
 def turn(direction):
     pressed_key = pygame.key.get_pressed()
-    if pressed_key[pygame.K_DOWN]:
+    if pressed_key[pygame.K_DOWN] and direction != 0:
         return 2
-    if pressed_key[pygame.K_UP]:
+    if pressed_key[pygame.K_UP] and direction != 2:
         return 0
-    if pressed_key[pygame.K_LEFT]:
+    if pressed_key[pygame.K_LEFT] and direction != 1:
         return 3
-    if pressed_key[pygame.K_RIGHT]:
+    if pressed_key[pygame.K_RIGHT] and direction != 3:
         return 1
     return direction
 
@@ -41,6 +41,6 @@ while True:
     snake = set_new_position(head_direction, snake, board)
     screen.fill((252, 3, 0))
 
-    draw(board, screen)
+    draw(board, screen, get_score(snake))
     pygame.display.flip()
-    clock.tick(12)
+    clock.tick(8)
