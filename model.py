@@ -42,6 +42,9 @@ def set_new_position(direction, snake, board):
         head_x = head_x - 1
     game_over(board, (head_x, head_y))
     board[(head_x, head_y)] = "SnakeHead"
+    for elem in snake:
+        board[elem] = None
+
     snake = [(head_x, head_y)] + move_tail(snake)
     for elem in snake:
         board[elem] = "SnakeHead"
